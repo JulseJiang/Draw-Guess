@@ -6,6 +6,9 @@ body
 canvas{
 	cursor: url('http://p04mjp4fq.bkt.gdipper.com/pencil.ico'),default;
 }
+div{
+	border: 10px solid cornflowerblue;
+}
 #game
 {
     width: 500px;
@@ -32,4 +35,10 @@ canvas{
 {
     border-bottom: 1px dashed rgba(20,20,20,.2);
     margin: 10px 0;
+}
+.control_box{
+	width: 500px;
+	height: 30px;
+    margin:0 auto;
+    background: burlywood;
 }
