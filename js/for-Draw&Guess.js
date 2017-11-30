@@ -1,12 +1,42 @@
 $(function(){
 	init_data();
 	link_socket();
-	init();
+	initGame();
+	initBtn();
 });
+function initBtn(){
+	var colors = ['black',//btn_black
+	'#7F7F7F',//btn_grey
+	'#880015',//btn_dark_red
+	'#ED1C24',//btn_red
+	'#FF7F27',//btn_orange
+	'#FFF200',//btn_yellow
+	'#22B14C',//btn_green
+	'#00A2E8',//btn_blue
+	'#3F48CC',//btn_dark_blue
+	'#A349A4'//btn_purple
+	]
+	console.log('初始化按钮');
+	$control_btn = $('.control_btn');
+	$.each($control_btn, function(index) {
+		$control_btn[index].onclick=function(){
+			if(index==10){
+				var draw_data = {};
+				draw_data.setValidate = true;
+				if(game.ws){
+				console.log('发出清空命令道服务器');
+				game.ws.send(JSON.stringify(draw_data));
+			}
+			}
+			game.ctx.strokeStyle= colors[index];
+		};
+	});
+}
 function init_data(){
 	//变量优化
 	game ={
 		canDraw:false, //can draw or not
+		setValidate:false,
 		$canvas:$('#drawing-pad'),//画布
 		ctx : null,//画笔
 		startX:0,//起笔x
@@ -21,13 +51,11 @@ function init_data(){
 	game.stopDraw = function(){};
 	game.drawLine = function(){};
 }
-function init(){
-	
+function initGame(){
 	game.ctx = game.$canvas.get(0).getContext('2d');
-
-	game.drawLine = function(x1,y1,x2,y2){
+	game.drawLine = function(x1,y1,x2,y2,color){
 		this.ctx.beginPath();{
-			this.ctx.strokeStyle= 'red';
+			this.ctx.strokeStyle= color;
 			this.ctx.lineWidth = 2;
 			this.ctx.moveTo(x1,y1);
 			this.ctx.lineTo(x2,y2);
@@ -63,6 +91,7 @@ function init(){
 				draw_data.startY = this.startY;
 				draw_data.endX = this.endX;
 				draw_data.endY = this.endY;
+				draw_data.color = this.ctx.strokeStyle;
 			console.log('把draw_data 发送到服务器：game.ws'+game.ws);
 			if(game.ws){
 				console.log('把draw_data 发送到服务器');
@@ -126,13 +155,19 @@ function link_socket() {
 			console.log('onmessage ws://127.0.0.1:8999');
 			console.log('onmessage msg:'+msg.data);
 			var data =JSON.parse(msg.data);
-			console.log('startX:'+data.startX);
-			game.drawLine(
-				data.startX,
-				data.startY,
-				data.endX,
-				data.endY
-			);
+			if(data.setValidate){
+				console.log('clear');
+				game.ctx.clearRect(0,0,500,400);
+			}else{
+				game.drawLine(
+					data.startX,
+					data.startY,
+					data.endX,
+					data.endY,
+					data.color
+				);
+			}
+			
 		}
 	} else {
 		console.log('没有socket');

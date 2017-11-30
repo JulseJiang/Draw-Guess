@@ -7,7 +7,7 @@ canvas{
 	cursor: url('http://p04mjp4fq.bkt.gdipper.com/pencil.ico'),default;
 }
 div{
-	border: 10px solid cornflowerblue;
+	border: 1px solid royalblue;
 }
 #game
 {
@@ -38,7 +38,53 @@ div{
 }
 .control_box{
 	width: 500px;
-	height: 30px;
+	height: 28px;
     margin:0 auto;
-    background: burlywood;
+    background: #fffeff;
+    border: 10px solid #ccd6e1;
+    box-shadow: 0 3px 5px #333;
+}
+.control_btn{
+	/*border-radius: 20%;*/
+	display: inline-block;
+	width: 23px;
+	height: 23px;
+	background: url(../img/icon.png);
+}
+.btn_pencil{
+	background-position: -3px -12px;
+}
+.btn_black{
+	background-position: -504px -3px;
+}
+.btn_grey{
+	background-position: -526px -3px;
+}
+.btn_dark_red{
+	background-position: -548px -3px;
+	/*22*/
+}
+.btn_red{
+	background-position: -570px -3px;
+}
+.btn_orange{
+	background-position: -592px -3px;
+}
+.btn_yellow{
+	background-position: -614px -3px;
+}
+.btn_green{
+	background-position: -636px -3px;
+}
+.btn_blue{
+	background-position: -658px -3px;
+}
+.btn_dark_blue{
+	background-position: -680px -3px;
+}
+.btn_purple{
+	background-position: -702px -3px;
+}
+.btn_clear{
+	background-position: -3px -48px;
 }
