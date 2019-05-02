@@ -4,7 +4,7 @@ body
     font-family: arial,serif;
 }
 canvas{
-	cursor: url('http://p04mjp4fq.bkt.gdipper.com/pencil.ico'),default;
+	cursor: url('../img/pencil.ico'),default;
 }
 div{
 	border: 1px solid royalblue;
