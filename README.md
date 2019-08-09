@@ -1,6 +1,6 @@
 ﻿# Draw-Guess
 这是一款基于html5的你画我猜小游戏，也可以作为远程会议的白板插件使用。
-服务器端的代码如下：draw_guess_sever.js
+服务器端的代码如下：draw_guess_sever.js https://github.com/JulseJiang/Draw-Guess/blob/master/js/draw_guess_sever.js
 
 ## 主要模块是
 	画板，聊天面板
