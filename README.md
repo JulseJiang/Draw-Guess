@@ -53,5 +53,6 @@
 ![演示图片](/img/functionshowimg.png)
 
 演示视频
-https://github.com/JulseJiang/Draw-Guess/blob/master/img/Draw%26Guess.mp4
-       
+本地：https://github.com/JulseJiang/Draw-Guess/blob/master/img/Draw%26Guess.mp4
+谷歌硬盘：https://drive.google.com/file/d/1m4h-ckhFdzbvViKwAYaV-4rtBGOpnCHW/view?usp=sharing
+     
